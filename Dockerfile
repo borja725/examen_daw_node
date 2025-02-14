@@ -1,18 +1,14 @@
-# Utilitza una imatge oficial de Node.js
+FROM node:18
 
+RUN mkdir -p /opt/app
 
-# Estableix el directori de treball
+WORKDIR /opt/app
 
+COPY package-lock.json app/package.json app/server.js .
 
-# Copia els fitxers de l'aplicació
+RUN npm install
 
+EXPOSE 3000
 
-
-# Instal·la les dependències
-
-
-# Exposa el port 3000
-
-
-# Comanda per executar l'aplicació
+CMD ["npm", "run", "start"]
 
